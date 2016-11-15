@@ -1,24 +1,33 @@
 package bg.elsys.ip.rest.models;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@XmlRootElement
 public class Product {
     private static int ID_COUNTER = 0;
 	private int id;
 	private String name;
-    private Date expiryDate;
+    private String expiryDate;
 	private float quantity;
 	private float price;
 	private String provider;
 	private String department;
 	private String barcode;
 
-	public Product(String name, Date expiryDate, float quantity, float price, String provider, String department, String barcode) {
+	public Product(String name, String expiryDate, float quantity, float price, String provider, String department, String barcode) {
 		this.id = ID_COUNTER++;
 		this.name = name;
-		this.expiryDate = expiryDate;
+//		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+//		try {
+//			this.expiryDate = df.parse(expiryDate);
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}
+        this.expiryDate = expiryDate;
 		this.quantity = quantity;
 		this.price = price;
 		this.provider = provider;
@@ -31,7 +40,7 @@ public class Product {
 		return df.format(expiryDate);
 	}
 
-	public void setExpiryDate(Date expiryDate) {
+	public void setExpiryDate(String expiryDate) {
 		this.expiryDate = expiryDate;
 	}
 
