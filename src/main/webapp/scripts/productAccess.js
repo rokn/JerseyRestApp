@@ -18,6 +18,9 @@ $(document).ready(function() {
 
 
 function onClickAddProduct(){
+    // $("#addProduct").toggleClass("visible");
+    // $("#addProduct").toggleClass("hidden");
+
     var product = {
         name: $("#name").val(),
         expiryDate: $("#expiryDate").val(),
@@ -50,8 +53,11 @@ function addProduct(product){
     $.ajax({
         method: 'POST',
         data: JSON.stringify(product),
-        url: 'api/products',
-        contentType: 'application/json'
+        url: config.API_URL + '/products',
+        contentType: 'application/json',
+        success: function (response) {
+            appendProductToTable(response)
+        }
     });
 }
 
@@ -66,5 +72,5 @@ function appendProductToTable(product){
     tr.append('<td>' + product.department + '</td>');
     tr.append('<td>' + product.barcode + '</td>');
     tr.append('</tr>');
-    $('#productsTable').append(tr);
+    $('#productsTableBody').append(tr);
 }

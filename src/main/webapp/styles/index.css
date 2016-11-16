@@ -1,0 +1,70 @@
+html * {
+    font-family: Comic Sans MS !important;
+}
+
+body {
+    margin:0px;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0px;
+    margin: 0px;
+}
+
+th, td {
+    margin: 0px;
+    text-align: center;
+    padding: 8px 0px 8px 10px;
+}
+
+th {
+    background-color: #7b8daa;
+    color: #eee;
+}
+
+tr {
+    transition: background-color 0.1s;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:not(.trNoHover):hover {
+    background-color: #dbe8ff;
+}
+
+.productInput {
+    border-radius: 3px;
+    border:solid 1px #dbe8ff;
+}
+
+.customButton {
+    background-color: #eee;
+    display: block;
+    width: 95%;
+    margin: 15px auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 1px black;
+    font-size: 1.5em;
+    transition: background-color 0.5s;
+    font-weight: bold;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s linear;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.3s, opacity 0.3s linear;
+}
+
+.customButton:hover {
+    background-color: #dbe8ff;
+}

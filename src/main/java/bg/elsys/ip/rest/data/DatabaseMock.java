@@ -2,8 +2,6 @@ package bg.elsys.ip.rest.data;
 
 import bg.elsys.ip.rest.models.Product;
 
-import javax.inject.Singleton;
-import java.lang.annotation.Annotation;
 import java.util.List;
 
 /**
@@ -15,7 +13,7 @@ public class DatabaseMock {
     private List<Product> products;
 
     protected DatabaseMock() {
-        products = DataGenerator.generateProducts();
+        products = DataGenerator.generateProducts(50);
     }
 
     public static DatabaseMock getInstance(){

@@ -8,26 +8,29 @@ import java.util.Date;
 
 @XmlRootElement
 public class Product {
-    private static int ID_COUNTER = 0;
+    private static int ID_COUNTER = 1;
 	private int id;
 	private String name;
-    private String expiryDate;
+    private Date expiryDate;
 	private float quantity;
 	private float price;
 	private String provider;
 	private String department;
 	private String barcode;
 
-	public Product(String name, String expiryDate, float quantity, float price, String provider, String department, String barcode) {
+	public Product() {
 		this.id = ID_COUNTER++;
+	}
+
+	public Product(String name, String expiryDate, float quantity, float price, String provider, String department, String barcode) {
+        this();
 		this.name = name;
-//		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-//		try {
-//			this.expiryDate = df.parse(expiryDate);
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
-        this.expiryDate = expiryDate;
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			this.expiryDate = df.parse(expiryDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		this.quantity = quantity;
 		this.price = price;
 		this.provider = provider;
@@ -41,7 +44,12 @@ public class Product {
 	}
 
 	public void setExpiryDate(String expiryDate) {
-		this.expiryDate = expiryDate;
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            this.expiryDate = df.parse(expiryDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 	}
 
 	public float getQuantity() {

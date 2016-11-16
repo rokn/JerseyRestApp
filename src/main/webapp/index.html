@@ -5,18 +5,35 @@
     <script type="text/javascript" src="scripts/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="scripts/config.js"></script>
     <script type="text/javascript" src="scripts/productAccess.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
 <title>Insert title here</title>
 </head>
 
 <body>
-    <input id="name" type="text"/>
-    <input id="expiryDate" type="text"/>
-    <input id="quantity" type="text"/>
-    <input id="price" type="text"/>
-    <input id="provider" type="text"/>
-    <input id="department" type="text"/>
-    <input id="barcode" type="text"/>
-    <button onclick="onClickAddProduct()">Add product</button>
-    <table id="productsTable"></table>
+    <button class="customButton visible" id="addProduct" onclick="onClickAddProduct()">Add product</button>
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Expiry Date</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Provider</th>
+            <th>Department</th>
+            <th>Barcode</th>
+        </thead>
+        <tbody id="productsTableBody">
+            <tr class="trNoHover">
+                <td> - </td>
+                <td><input class="productInput" id="name" type="text"/></td>
+                <td><input class="productInput" id="expiryDate" type="text"/></td>
+                <td><input class="productInput" id="quantity" type="text"/></td>
+                <td><input class="productInput" id="price" type="text"/></td>
+                <td><input class="productInput" id="provider" type="text"/></td>
+                <td><input class="productInput" id="department" type="text"/></td>
+                <td><input class="productInput" id="barcode" type="text"/></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
