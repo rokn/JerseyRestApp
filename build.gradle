@@ -2,24 +2,36 @@
 apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'eclipse-wtp'
-apply plugin: 'jetty' 
-
+apply plugin: 'org.akhikhl.gretty'
 // In this section you declare where to find the dependencies of your project
 repositories {
     jcenter()
     mavenCentral()
 }
 
-// In this section you declare the dependencies for your production and test code
-dependencies {
-    	compile 'javax.ws.rs:javax.ws.rs-api:2.0.1'
-    compile 'org.glassfish.jersey.core:jersey-server:2.22.2'
-    compile 'org.glassfish.jersey.media:jersey-media-json-jackson:2.22.2'
-    compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.22.2'
-    testCompile 'junit:junit:4.12'
+buildscript {
+  repositories {
+    jcenter()
+    // enable this to use snapshot versions of Gretty:
+    // maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local' }
+  }
+
+  dependencies {
+    classpath 'org.akhikhl.gretty:gretty:+'
+  }
 }
 
-jettyRun {
-    reload = "automatic"
-    scanIntervalSeconds = 1
+
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+
+	compile group: 'org.slf4j', name: 'slf4j-jdk14', version: '1.7.5'
+
+    compile 'javax.ws.rs:javax.ws.rs-api:2.0.1'
+    compile 'org.glassfish.jersey.core:jersey-server:2.24'
+    compile 'org.glassfish.jersey.media:jersey-media-json-jackson:2.24'
+    compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.24'
+    compile 'io.swagger:swagger-jersey2-jaxrs:1.5.0'
+    testCompile 'junit:junit:4.12'
 }

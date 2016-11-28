@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="scripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="scripts/config.js"></script>
+    <script type="text/javascript" src="scripts/productAccess.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <meta charset="UTF-8">
+    <title>Add a product</title>
+</head>
+<body>
+    <div id="addForm">
+        <label for="name">Product Name:</label> <br>
+        <input class="productInput" id="name" type="text"/> <br> <br>
+        <label for="expiryDate">Expiry Date:</label> <br>
+        <input class="productInput" id="expiryDate" type="text"/> <br> <br>
+        <label for="quantity">Quantity:</label> <br>
+        <input class="productInput" id="quantity" type="text"/> <br> <br>
+        <label for="price">Price:</label> <br>
+        <input class="productInput" id="price" type="text"/> <br> <br>
+        <label for="provider">Provider:</label> <br>
+        <input class="productInput" id="provider" type="text"/> <br> <br>
+        <label for="department">Department:</label> <br>
+        <input class="productInput" id="department" type="text"/> <br> <br>
+        <label for="barcode">Barcode:</label> <br>
+        <input class="productInput" id="barcode" type="text"/> <br> <br>
+        <button class="customButton" onclick="window.location.href='index.html'">Go Back</button>
+        <button class="customButton" onclick="onClickAddProduct()">Add Product</button>
+    </div>
+</body>
+</html>

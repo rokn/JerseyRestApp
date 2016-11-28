@@ -8,6 +8,7 @@ import java.util.Date;
 
 @XmlRootElement
 public class Product {
+	public static String DATE_FORMAT = "MM/dd/yyyy";
     private static int ID_COUNTER = 1;
 	private int id;
 	private String name;
@@ -25,7 +26,7 @@ public class Product {
 	public Product(String name, String expiryDate, float quantity, float price, String provider, String department, String barcode) {
         this();
 		this.name = name;
-		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		DateFormat df = new SimpleDateFormat(DATE_FORMAT);
 		try {
 			this.expiryDate = df.parse(expiryDate);
 		} catch (ParseException e) {
@@ -39,12 +40,12 @@ public class Product {
 	}
 
 	public String getExpiryDate() {
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat df = new SimpleDateFormat(DATE_FORMAT);
 		return df.format(expiryDate);
 	}
 
 	public void setExpiryDate(String expiryDate) {
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat df = new SimpleDateFormat(DATE_FORMAT);
         try {
             this.expiryDate = df.parse(expiryDate);
         } catch (ParseException e) {

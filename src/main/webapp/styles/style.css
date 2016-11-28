@@ -35,36 +35,38 @@ tr:not(.trNoHover):hover {
     background-color: #dbe8ff;
 }
 
-.productInput {
+.productFilter {
     border-radius: 3px;
     border:solid 1px #dbe8ff;
 }
 
 .customButton {
     background-color: #eee;
-    display: block;
-    width: 95%;
-    margin: 15px auto;
+    display: inline;
     padding: 10px;
     border-radius: 5px;
     border: solid 1px black;
-    font-size: 1.5em;
+    font-size: 1em;
     transition: background-color 0.5s;
     font-weight: bold;
-}
-
-.visible {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 0.3s linear;
-}
-
-.hidden {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s 0.3s, opacity 0.3s linear;
+    transition: width 0.5s, margin 0.5s;
+    margin: 15px 0px;
 }
 
 .customButton:hover {
     background-color: #dbe8ff;
+}
+
+#goToAddProduct {
+    width: 100%;
+    font-size: 2em;
+    border-style: inset;
+}
+
+#addForm {
+    text-align: center;
+}
+
+#addForm label {
+    font-weight: bold;
 }
