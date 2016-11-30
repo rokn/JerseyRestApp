@@ -1,11 +1,11 @@
 package bg.elsys.ip.rest.resources;
 
 import bg.elsys.ip.rest.data.DatabaseMock;
+import bg.elsys.ip.rest.models.AutoCompleter;
 import bg.elsys.ip.rest.models.Product;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-import javax.print.attribute.standard.Media;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response;
 @Api(value = "Api for querying products")
 public class ProductResource {
 	@GET
-    @ApiOperation(value = "get  all products")
+    @ApiOperation(value = "Get  all products", response=Product.class, responseContainer = "List")
 	@Produces(MediaType.APPLICATION_JSON)
     public Response getProducts(
                         @QueryParam("page") int page,
@@ -30,14 +30,14 @@ public class ProductResource {
 	}
 
 	@Path("/auto")
-    @ApiOperation(value = "get all unique properties of the products")
+    @ApiOperation(value = "Get all unique properties of the products", response = AutoCompleter.class)
 	@GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAutoCompleteLists() {
         return Response.ok(DatabaseMock.getInstance().generateAutoCompleter()).build();
     }
 
-    @ApiOperation(value = "Adds a product in the list")
+    @ApiOperation(value = "Adds a product in the list", response = Product.class)
 	@POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

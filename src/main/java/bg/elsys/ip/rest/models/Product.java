@@ -1,22 +1,33 @@
 package bg.elsys.ip.rest.models;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.xml.bind.annotation.XmlRootElement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@XmlRootElement
+@ApiModel
 public class Product {
 	public static String DATE_FORMAT = "MM/dd/yyyy";
     private static int ID_COUNTER = 1;
+	@ApiModelProperty("An unique id for product")
 	private int id;
+	@ApiModelProperty(value = "The name of the product", example = "Coca Cola")
 	private String name;
+	@ApiModelProperty(value = "The expiry date of the product", example = "10/12/2017")
     private Date expiryDate;
+	@ApiModelProperty(value = "The quantity in storage of the product", example = "50")
 	private float quantity;
+	@ApiModelProperty(value = "The price of the product", example = "2.20")
 	private float price;
+	@ApiModelProperty(value = "The provider of the product", example = "Coca Cola")
 	private String provider;
+	@ApiModelProperty(value = "The department in which the product is stored", example = "Drinks")
 	private String department;
+	@ApiModelProperty(value = "The barcode of the product", example = "12345678")
 	private String barcode;
 
 	public Product() {
