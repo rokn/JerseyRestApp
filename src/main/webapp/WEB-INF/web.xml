@@ -27,7 +27,7 @@
 		</init-param>
 		<init-param>
 			<param-name>jersey.config.server.provider.packages</param-name>
-			<param-value>bg.elsys.ip.rest.resources</param-value>
+			<param-value>io.swagger.jaxrs.listing, bg.elsys.ip.rest.resources</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>

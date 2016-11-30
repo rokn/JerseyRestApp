@@ -30,7 +30,7 @@ public class ProductFilter {
     }
 
     public PagedResponse filterProducts(List<Product> products) {
-        int previousItems = page * perPage;
+        int previousItems = (page-1) * perPage;
         List<Product> result = products.stream()
                 .filter(product -> stringFilter(prodName, product.getName()))
                 .filter(product -> minQuantity == null || product.getQuantity() >= minQuantity)
